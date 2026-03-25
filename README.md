@@ -1,1 +1,1 @@
-# amaitrumou
+Amaitrum OÜ
