@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OÜ Amaitrum</title>
+<meta name="description" content="OÜ Amaitrum – IT-lahendused ja tehniline tugi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:    #0f1923;
+    --mid:    #4a5568;
+    --mist:   #8a9bb0;
+    --line:   #dde3eb;
+    --paper:  #f7f8fa;
+    --white:  #ffffff;
+    --accent: #1a56db;
+    --accent2:#0e3a9c;
+    --gold:   #c8973a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--mid);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 4rem;
+    gap: 4rem;
+  }
+
+  .hero-text { }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--mid);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 2px 14px rgba(26,86,219,0.28);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,86,219,0.32);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  .btn-outline:hover {
+    background: rgba(26,86,219,0.06);
+    transform: translateY(-2px);
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .hero-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.6rem 1.4rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+
+  .hero-card:nth-child(2) { margin-top: 1.5rem; }
+  .hero-card:nth-child(4) { margin-top: -1.5rem; }
+
+  .card-icon {
+    width: 42px; height: 42px;
+    border-radius: 8px;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .hero-card p {
+    font-size: 0.8rem;
+    color: var(--mist);
+    line-height: 1.5;
+  }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 5rem 2.5rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 560px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* ── SERVICES ── */
+  #teenused { background: var(--paper); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-item {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 2rem 1.8rem;
+    transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: left;
+  }
+
+  .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.09);
+    border-color: transparent;
+  }
+
+  .service-item:hover::after { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    color: var(--line);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+  }
+
+  .service-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  .service-item p {
+    font-size: 0.875rem;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  /* ── ABOUT ── */
+  #meist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  #meist .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .stat-box {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--accent);
+    font-style: italic;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--mist);
+    font-weight: 500;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-block {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-block::before {
+    content: '{}';
+    position: absolute;
+    top: -1rem; right: 1.5rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 9rem;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    font-style: italic;
+  }
+
+  .about-block h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .about-block p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .accent-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ── SKILLS ── */
+  #oskused { background: var(--paper); }
+
+  .skills-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1rem;
+  }
+
+  .skill-group h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .skill-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--mid);
+  }
+
+  .skill-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── CONTACT ── */
+  #kontakt { background: var(--ink); color: var(--white); }
+
+  #kontakt .container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+  #kontakt h2 { color: var(--white); }
+
+  #kontakt .section-label { color: #6b9fff; }
+  #kontakt .section-label::before { background: #6b9fff; }
+
+  #kontakt .section-intro { color: rgba(255,255,255,0.55); }
+
+  .contact-details { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 0.5rem; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-ico {
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item span {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .contact-item a {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .contact-item a:hover { color: #6b9fff; }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 5px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #6b9fff;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+
+  .contact-form button {
+    padding: 0.9rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s, transform 0.18s;
+  }
+
+  .contact-form button:hover { background: #2467f0; transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080f17;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 1.8rem 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  footer strong { color: rgba(255,255,255,0.55); font-weight: 500; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 3rem; min-height: auto; }
+    .hero-visual { grid-template-columns: 1fr 1fr; }
+    .hero-card:nth-child(2), .hero-card:nth-child(4) { margin-top: 0; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    #meist .container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-cols { grid-template-columns: 1fr; }
+    #kontakt .container { grid-template-columns: 1fr; gap: 3rem; }
+    nav ul { gap: 1rem; }
+  }
+
+  @media (max-width: 580px) {
+    nav { padding: 0 1.2rem; }
+    nav ul { display: none; }
+    section { padding: 3.5rem 1.4rem; }
+    .hero { padding: 3rem 1.4rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Amaitrum<span>.</span></a>
+  <ul>
+    <li><a href="#teenused">Teenused</a></li>
+    <li><a href="#meist">Meist</a></li>
+    <li><a href="#oskused">Oskused</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="#kontakt" class="btn btn-primary" style="padding:0.55rem 1.3rem; font-size:0.82rem;">Võta ühendust</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">IT-lahendused Eestis</div>
+    <h1>Tehniline <em>kompetents</em> teie ettevõttele</h1>
+    <p class="hero-sub">OÜ Amaitrum pakub usaldusväärseid IT-lahendusi — riistvara, tarkvara, süsteemihaldus ja automatiseerimine. Kiire, asjatundlik, aus.</p>
+    <div class="btn-group">
+      <a href="#teenused" class="btn btn-primary">Meie teenused</a>
+      <a href="#kontakt" class="btn btn-outline">Küsi pakkumist</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="card-icon">🖥️</div>
+      <h3>Riistvara</h3>
+      <p>Arvutite koostamine ja optimeerimine</p>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">⚙️</div>
+      <h3>Süsteemid</h3>
+      <p>Windows & Linux seadistamine</p>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">🤖</div>
+      <h3>Automatiseerimine</h3>
+      <p>Python ja Bash skriptid</p>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">📡</div>
+      <h3>IoT</h3>
+      <p>Raspberry Pi & Arduino lahendused</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="teenused">
+  <div class="container">
+    <div class="section-label">Mida me teeme</div>
+    <h2>Meie teenused</h2>
+    <p class="section-intro">Pakume laia valikut IT-teenuseid väikeettevõtetele, kodukasutajatele ja tehnikahuvilistele.</p>
+    <div class="services-grid">
+      <div class="service-item reveal">
+        <div class="service-num">01</div>
+        <h3>Arvutite koostamine & ülendamine</h3>
+        <p>Kohandatud PC-de ehitamine kliendi vajaduste järgi — töö- ja mänguvõimsus, jõudluse optimeerimine.</p>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">02</div>
+        <h3>Süsteemihaldus & IT-tugi</h3>
+        <p>Windows 10/11 ja Linuxi seadistamine, hooldus, turvamine ning kaugtugi kiiresti ja selgelt.</p>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">03</div>
+        <h3>Tarkvara arendus & automatiseerimine</h3>
+        <p>Pythoni rakendused, Bash skriptid ja töövoogude automatiseerimine — säästab aega, vähendab vigu.</p>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">04</div>
+        <h3>IoT lahendused</h3>
+        <p>Raspberry Pi ja Arduino baasil seadmed kodude ja väikeettevõtete nutikateks lahendusteks.</p>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">05</div>
+        <h3>Veebilehtede loomine</h3>
+        <p>Lihtsad, kiired ja mobiilisõbralikud veebilehed HTML/CSS baasil — ilma tarbetu keerukuseta.</p>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-num">06</div>
+        <h3>Konsultatsioon & koolitus</h3>
+        <p>Abi IT-otsuste tegemisel, riistvara soovitused ja põhjalik tehniline nõustamine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="meist" style="padding: 5rem 2.5rem;">
+  <div class="container">
+    <div>
+      <div class="section-label reveal">Kes me oleme</div>
+      <h2 class="reveal">Tehniline<br>kogemus,<br>inimlik lähenemine</h2>
+      <p class="section-intro reveal" style="margin-bottom:1.5rem;">
+        OÜ Amaitrum on asutatud Tartus. Oleme spetsialiseerunud IT-lahendustele, mis tegelikult töötavad — ilma üleliigse bürokraatia ja läbipaistmatute hindadeta.
+      </p>
+      <p style="font-size:0.9rem; color:var(--mid); font-weight:300; line-height:1.75;" class="reveal">
+        Meie töö hõlmab nii füüsilise riistvara tundmist kui ka süvaoskusi tarkvaras. Iga projekt saab tähelepanu, mida see väärib.
+      </p>
+      <div class="about-stats">
+        <div class="stat-box reveal">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Avatud hinnad</span>
+        </div>
+        <div class="stat-box reveal">
+          <span class="stat-num">Kiire</span>
+          <span class="stat-label">Reageerimisaeg</span>
+        </div>
+        <div class="stat-box reveal">
+          <span class="stat-num">EE</span>
+          <span class="stat-label">Registreeritud Eestis</span>
+        </div>
+        <div class="stat-box reveal">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">E-post alati</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-block">
+        <span class="accent-tag">Meie põhimõte</span>
+        <h3>Ausus ja läbipaistvus igas projektis</h3>
+        <p>Me ei müü rohkem, kui vaja. Kui probleem on lihtne, siis lahendus on ka lihtne — ja hind seda kajastab. Meie eesmärk on pikaajaline usaldus, mitte ühekordne tehing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="oskused">
+  <div class="container">
+    <div class="section-label reveal">Meie kompetents</div>
+    <h2 class="reveal">Tehniline pädevus</h2>
+    <p class="section-intro reveal">Tööriistad ja platvormid, millega töötame igapäevaselt.</p>
+    <div class="skills-cols">
+      <div class="skill-group reveal">
+        <h3>Riistvara & Platvormid</h3>
+        <ul class="skill-list">
+          <li>PC koostamine ja komponentide valik</li>
+          <li>Arduino UNO R3</li>
+          <li>Raspberry Pi 3B+ / Zero 2 W</li>
+          <li>3D modelleerimine</li>
+          <li>Jootmine ja elektroonika</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Tarkvara & Süsteemid</h3>
+        <ul class="skill-list">
+          <li>Windows 10 / 11 (seadistamine, optimeerimine)</li>
+          <li>Linux (Arch, CachyOS, Ubuntu)</li>
+          <li>Python programmeerimine</li>
+          <li>Bash skriptimine</li>
+          <li>HTML / CSS</li>
+          <li>Failisüsteemid: NTFS / FAT32 / EXT4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt">
+  <div class="container">
+    <div>
+      <div class="section-label">Kirjuta meile</div>
+      <h2>Võta ühendust</h2>
+      <p class="section-intro">Huvi teenuse vastu? Küsimus? Kirjuta — vastame kiiresti.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-ico">✉️</div>
+          <div>
+            <span>E-post</span>
+            <a href="mailto:opmanngregor@gmail.com">opmanngregor@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-ico">📍</div>
+          <div>
+            <span>Asukoht</span>
+            <a href="#">Tartu, Eesti</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-ico">🏢</div>
+          <div>
+            <span>Ettevõte</span>
+            <a href="#">OÜ Amaitrum</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Teie nimi" required>
+        <input type="email" placeholder="E-posti aadress" required>
+      </div>
+      <input type="text" placeholder="Teema">
+      <textarea placeholder="Teie sõnum…" required></textarea>
+      <button type="submit">Saada sõnum →</button>
+      <p id="form-msg" style="font-size:0.8rem; color:#6b9fff; display:none;">✓ Sõnum saadetud! Võtame teiega ühendust.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="yr"></span> <strong>OÜ Amaitrum</strong> · Kõik õigused kaitstud · Tartu, Eesti
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form mock submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const msg = document.getElementById('form-msg');
+    msg.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => msg.style.display = 'none', 4000);
+  }
+</script>
+
+</body>
+</html>
