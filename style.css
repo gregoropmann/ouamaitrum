@@ -4,6 +4,10 @@
     --light: #f4f4f4;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
@@ -56,6 +60,11 @@ nav {
     text-align: center;
 }
 
+.service-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
 footer {
     background: var(--dark);
     color: white;
@@ -67,4 +76,33 @@ footer {
     background: transparent;
     border: 2px solid white;
     margin-left: 10px;
+}
+
+.about {
+    background: #fff;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.why-us ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why-us li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.sticky-call {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0056b3;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
 }
