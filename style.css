@@ -163,15 +163,20 @@ p {
 .why-us {
     background: var(--primary);
     color: white;
-    padding: 8vw 5vw;
+    padding: 4vw 6vw; 
     border-radius: 2vw;
+    display: inline-block; 
+    width: auto;
+    margin: 20px auto;
 }
 
 .why-us li {
     font-size: 4vw;
-    margin: 3vw 0;
+    margin: 2vw 0;
     list-style: none;
+    white-space: nowrap;
 }
+
 
 /* ------------------- Footer ------------------- */
 footer {
