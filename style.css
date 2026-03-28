@@ -200,11 +200,10 @@ section {
 footer {
     background: var(--dark);
     color: var(--white);
-    padding: 7vw 3vw;
+    padding: 30px 5%;
     text-align: center;
-    width: 100vw;
+    width: 100%;
 }
-
 footer a {
     color: var(--accent);
     text-decoration: none;
@@ -212,6 +211,11 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
 }
 
 footer p a {
