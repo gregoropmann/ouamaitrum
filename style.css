@@ -183,17 +183,18 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-    padding: 20px;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
 }
 
 .gallery figure {
-    margin: 0;
-    width: 90%;
-    max-width: 1200px;
+    margin: 0 auto;
+    width: 95vw;
+    max-width: 1000px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     overflow: hidden;
 }
 
@@ -205,26 +206,24 @@ footer a:hover {
 }
 
 .gallery figcaption {
-    padding: 25px;
-    font-size: 1.5rem;
+    padding: 15px;
+    font-size: 1.1rem;
     text-align: center;
-    background: #fafafa;
-    border-top: 1px solid #eee;
+    background: #fdfdfd;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .gallery {
-        gap: 20px;
-        padding: 10px;
+        gap: 40px;
+        padding: 20px;
     }
 
     .gallery figure {
-        width: 100%;
-        border-radius: 8px;
+        width: 80vw;
     }
 
     .gallery figcaption {
-        padding: 15px;
-        font-size: 1.1rem;
+        padding: 25px;
+        font-size: 1.5rem;
     }
 }
