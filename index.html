@@ -24,10 +24,17 @@
 <body>
     <header>
         <nav>
-        <div class="logo">
+            <div class="logo">
                 <img src="images/logo.png" class="logo-img">
-        </div>
-            <ul>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        
+            <ul class="nav-links">
                 <li><a href="#meist">Meist</a></li>
                 <li><a href="#teenused">Teenused</a></li>
                 <li><a href="#galerii">Galerii</a></li>
@@ -71,11 +78,11 @@
     </section>
 
 <section class="why-us">
-    <h2>Miks valida Amaitrum?</h2>
+<h2>Miks valida Amaitrum?</h2>
     <ul>
-    <li>✔ Kiire reageerimine Tartus ja Tartumaal</li>
-    <li>✔ Kogemus erinevate küttesüsteemidega</li>
-    <li>✔ Täpne ja kvaliteetne töö</li>
+        <li>✔ Kiire reageerimine Tartus ja Tartumaal</li>
+        <li>✔ Kogemus erinevate küttesüsteemidega</li>
+        <li>✔ Täpne ja kvaliteetne töö</li>
     </ul>
 </section>
 
@@ -116,5 +123,20 @@
         <p>📞 <a href="tel:+37251998230">+372 51998230</a></p>
 <p>✉ <a href="mailto:rainero729@gmail.com">rainero729@gmail.com</a></p>
     </footer>
+
+<script>
+    const menu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
+
 </body>
 </html>
