@@ -220,11 +220,13 @@ footer a:hover {
 /* ------------------- Logo ------------------- */
 .logo-img {
     height: auto;
-    max-height: 50px;
+    max-height: 60px;
     display: block;
 }
 
-.logo {
-    display: flex;
-    align-items: left;
+@media only screen and (max-width: 768px) {
+    .logo-img {
+        max-height: 40px;
+        max-width: 150px;
+    }
 }
