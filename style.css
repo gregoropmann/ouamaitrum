@@ -218,18 +218,10 @@ footer a:hover {
 }
 
 /* ------------------- Logo ------------------- */
-.logo {
-    position: relative;
-    width: 200px;
-}
-
 .logo-img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     height: auto;
-    width: 250px;
-    z-index: 10;
+    max-height: 100px;
+    display: block;
 }
 
 @media only screen and (max-width: 768px) {
