@@ -37,15 +37,16 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 5%; 
+    padding: 0 5%; 
     background: var(--primary);
     color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 70px;
 }
 
-nav ul {
+.nav-links {
     display: flex;
     list-style: none;
     margin: 0;
@@ -53,7 +54,7 @@ nav ul {
     gap: 1.5rem;
 }
 
-nav li a {
+.nav-links li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -61,47 +62,52 @@ nav li a {
     transition: color 0.3s;
 }
 
-nav li a:hover {
-    color: var(--secondary);
-}
-
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 5px;
+    gap: 6px;
+    padding: 10px;
 }
 
 .bar {
-    width: 25px;
+    width: 28px;
     height: 3px;
     background-color: white;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
-        z-index: 1001;
     }
 
     .nav-links {
         position: fixed;
         right: -100%;
-        top: 60px;
+        top: 70px;
         flex-direction: column;
         background: var(--primary);
         width: 100%;
-        height: auto;
+        height: calc(100vh - 70px);
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         padding: 2rem 0;
         gap: 2rem;
     }
 
     .nav-links.active {
         right: 0;
+    }
+
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
 
