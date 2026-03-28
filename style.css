@@ -50,34 +50,20 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 nav li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
 nav li a:hover {
     color: var(--secondary);
 }
-
-@media only screen and (max-width: 768px) {
-    nav {
-        padding: 0.5rem 3%;
-    }
-
-    nav ul {
-        gap: 0.8rem;
-    }
-
-    nav li a {
-        font-size: 0.95rem;
-        font-weight: 600;
-    }
 
 /* ------------------- Hero Section ------------------- */
 .hero {
