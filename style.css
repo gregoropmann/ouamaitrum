@@ -1,4 +1,4 @@
-/* ------------------- Root Variables ------------------- */
+/* ------------------- Root Variables -------- */
 :root {
     --primary: #0056b3;
     --secondary: #00a8a8;
@@ -10,7 +10,7 @@
     --border: rgba(0,0,0,0.08);
 }
 
-/* ------------------- Global Styles ------------------- */
+/* ------------------- Global Styles --------- */
 * {
     box-sizing: border-box;
 }
@@ -27,7 +27,7 @@ html, body {
     scroll-behavior: smooth;
 }
 
-/* ------------------- Typography ------------------- */
+/* ------------------- Typography ------------ */
 h1 { font-size: clamp(24px, 8vw, 48px); }
 h2 { font-size: clamp(20px, 7vw, 36px); }
 p  { font-size: clamp(16px, 4vw, 18px); }
@@ -36,7 +36,7 @@ a {
     color: inherit;
 }
 
-/* ------------------- Navigation ------------------- */
+/* ------------------- Navigation ------------ */
 nav {
     display: flex;
     justify-content: space-between;
@@ -70,7 +70,7 @@ nav {
     color: var(--secondary) !important;
 }
 
-/* ------------------- Mobile Burger------------------- */
+/* ------------------- Mobile Burger---------- */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -120,7 +120,7 @@ nav {
     }
 }
 
-/* ------------------- Hero Section ------------------- */
+/* ------------------- Hero Section ---------- */
 .hero {
     background: linear-gradient(rgba(0,86,179,0.7), rgba(0,168,168,0.7)),
                 url('https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&q=80&w=1200') 
@@ -152,7 +152,7 @@ nav {
     color: var(--white);
 }
 
-/* ------------------- Sections ------------------- */
+/* ------------------- Sections -------------- */
 section {
     padding: 60px 5%;
     max-width: 1200px;
@@ -166,7 +166,7 @@ section {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* ------------------- Services ------------------- */
+/* ------------------- Services -------------- */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -180,7 +180,7 @@ section {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* ------------------- Why Us ------------------- */
+/* ------------------- Why Us ---------------- */
 .why-us {
     background: var(--primary) !important;
     color: white;
@@ -195,7 +195,7 @@ section {
 .why-us ul { text-align: left; padding: 0; list-style: none; }
 .why-us li { margin: 10px 0; white-space: nowrap; }
 
-/* ------------------- Footer ------------------- */
+/* ------------------- Footer ---------------- */
 
 footer {
     background: var(--dark);
@@ -227,7 +227,7 @@ footer p a:hover {
     text-decoration: underline;
 }
 
-/* ------------------- Sticky Call (Mobiilis ainult) ------------------- */
+/* ------------------- Sticky Call ----------- */
 .sticky-call {
     position: fixed;
     bottom: 20px;
@@ -246,13 +246,13 @@ footer p a:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* ------------------- Desktop Adjustments ------------------- */
+/* ------------------- Desktop Adjustments ----*/
 @media (min-width: 769px) {
     .hero { padding: 100px 5%; }
     .sticky-call { display: none; }
 }
 
-/* ------------------- Gallery ------------------- */
+/* ------------------- Gallery --------------- */
 .gallery { 
     display: grid;
     grid-template-columns: 1fr;
@@ -291,7 +291,7 @@ footer p a:hover {
     }
 }
 
-/* ------------------- Logo ------------------- */
+/* ------------------- Logo -------------------*/
 .logo-img {
     height: auto;
     max-height: 100px;
@@ -303,4 +303,22 @@ footer p a:hover {
         max-height: 100px;
         max-width: 300px;
     }
+}
+
+/*-------------------- KKK ------------------*/
+.faq div {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+    transition: 0.3s;
+}
+
+.faq div:hover {
+    padding-left: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+.faq strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 5px;
 }
