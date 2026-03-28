@@ -31,9 +31,12 @@ html, body {
 h1 { font-size: clamp(24px, 8vw, 48px); }
 h2 { font-size: clamp(20px, 7vw, 36px); }
 p  { font-size: clamp(16px, 4vw, 18px); }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* ------------------- Navigation ------------------- */
-/* ------------------- Navigatsioon ------------------- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -53,6 +56,18 @@ nav {
     margin: 0;
     padding: 0;
     gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: var(--white) !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary) !important;
 }
 
 /* ------------------- Mobile Burger------------------- */
@@ -196,6 +211,15 @@ footer a {
 }
 
 footer a:hover {
+    text-decoration: underline;
+}
+
+footer p a {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+footer p a:hover {
     text-decoration: underline;
 }
 
