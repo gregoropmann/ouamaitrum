@@ -65,6 +65,46 @@ nav li a:hover {
     color: var(--secondary);
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 60px;
+        flex-direction: column;
+        background: var(--primary);
+        width: 100%;
+        height: auto;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding: 2rem 0;
+        gap: 2rem;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+}
+
 /* ------------------- Hero Section ------------------- */
 .hero {
     background: linear-gradient(rgba(0,86,179,0.7), rgba(0,168,168,0.7)),
