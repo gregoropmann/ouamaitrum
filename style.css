@@ -124,7 +124,7 @@ section {
     background: var(--primary) !important;
     color: white;
     border-radius: 15px;
-    display: block !important; /* display: table on vana kool ja jamab */
+    display: block !important;
     width: fit-content;
     margin: 40px auto;
     padding: 30px 50px !important;
