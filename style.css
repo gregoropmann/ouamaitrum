@@ -123,7 +123,7 @@ nav {
 /* ------------------- Hero Section ---------- */
 
 .hero {
-    background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 168, 168, 0.7)),
+    background: rgba(0, 168, 168, 0.7)),
                 url('images/background-mobile.png') no-repeat center center/cover;
     color: var(--white);
     text-align: center;
@@ -132,7 +132,7 @@ nav {
 
 @media (min-width: 769px) {
     .hero {
-        background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 168, 168, 0.7)),
+        background: rgba(0, 168, 168, 0.7)),
                     url('images/background-desktop.png') no-repeat center center/cover;
         padding: 100px 5%;
     }
