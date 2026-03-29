@@ -123,18 +123,20 @@ nav {
 /* ------------------- Hero Section ---------- */
 
 .hero {
-    background: rgba(0, 168, 168, 0.7)),
+    background:
                 url('images/background-mobile.png') no-repeat center center/cover;
     color: var(--white);
     text-align: center;
     padding: 15vh 5% 10vh;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 @media (min-width: 769px) {
     .hero {
-        background: rgba(0, 168, 168, 0.7)),
+        background:
                     url('images/background-desktop.png') no-repeat center center/cover;
         padding: 100px 5%;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     }
 }
 
