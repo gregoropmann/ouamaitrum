@@ -37,6 +37,7 @@
         }
     </script>
 </head>
+
 <body>
     <header>
         <nav>
@@ -196,7 +197,14 @@
                 menu.classList.remove('is-active');
             });
         });
+
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 300);
+});
 </script>
+
+<a href="#" class="back-to-top" id="backToTop" aria-label="Tagasi üles">↑</a>
 
 </body>
 </html>
