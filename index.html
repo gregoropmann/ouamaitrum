@@ -274,8 +274,9 @@
 
     const menu = document.querySelector('#mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const backToTop = document.getElementById('backToTop');
 
-    menu.addEventListener('click', () => {
+    menu?.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         menu.classList.toggle('is-active');
     });
@@ -287,23 +288,23 @@
         });
     });
 
-    const backToTop = document.getElementById('backToTop');
-
     window.addEventListener('scroll', () => {
         if (!backToTop) return;
         backToTop.classList.toggle('visible', window.scrollY > 300);
     });
 
-    backToTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (backToTop) {
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
 </script>
 
 
 <!-- BACK TO TOP -->
-<a href="#" class="back-to-top" id="backToTop" aria-label="Tagasi üles">↑</a>
+<a href="javascript:void(0)" class="back-to-top" id="backToTop" aria-label="Tagasi üles">↑</a>
 
 </body>
 </html>
