@@ -392,6 +392,14 @@ footer p a:hover {
     }
 }
 
+@media (min-width: 769px) {
+    .back-to-top {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+}
+
 /*--------links-------*/
 
 .useful-links {
