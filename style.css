@@ -391,7 +391,7 @@ footer p a:hover {
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        bottom: 90px;
+        bottom: 100px;
     }
 
     .back-to-top.visible:hover {
