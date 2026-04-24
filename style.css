@@ -370,12 +370,12 @@ footer p a:hover {
 }
 
 .back-to-top.visible {
-    opacity: 0.35;
+    opacity: 0.8;
     pointer-events: auto;
 }
 
 .back-to-top:hover {
-    opacity: 0.85;
+    opacity: 1;
     transform: translateY(-3px);
 }
 
