@@ -374,28 +374,28 @@ footer p a:hover {
     pointer-events: auto;
 }
 
-.back-to-top:hover {
-    transform: translateX(-50%) translateY(-3px);
+@media (min-width: 769px) {
+    .back-to-top:hover {
+        transform: translateY(-3px);
+    }
+
+    .back-to-top {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
 }
 
 @media (max-width: 768px) {
     .back-to-top {
         left: 50%;
         right: auto;
-        bottom: 90px;
         transform: translateX(-50%);
+        bottom: 90px;
     }
 
-    .back-to-top:hover {
+    .back-to-top.visible:hover {
         transform: translateX(-50%) translateY(-3px);
-    }
-}
-
-@media (min-width: 769px) {
-    .back-to-top {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
     }
 }
 
