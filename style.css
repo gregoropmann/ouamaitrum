@@ -77,6 +77,13 @@ nav {
     color: var(--secondary) !important;
 }
 
+@media (max-width: 768px) {
+    .nav-links {
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+}
+
 /* ------------------- Mobile Burger---------- */
 .menu-toggle {
     display: none;
