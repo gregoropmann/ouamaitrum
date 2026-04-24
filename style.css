@@ -381,11 +381,14 @@ footer p a:hover {
 
 @media (max-width: 768px) {
     .back-to-top {
-        width: 52px;
-        height: 52px;
-        font-size: 1.4rem;
-        bottom: 18px;
-        right: 18px;
+        left: 50%;
+        right: auto;
+        bottom: 90px;
+        transform: translateX(-50%);
+    }
+
+    .back-to-top:hover {
+        transform: translateX(-50%) translateY(-3px);
     }
 }
 
