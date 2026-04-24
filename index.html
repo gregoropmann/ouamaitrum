@@ -270,24 +270,34 @@
 
 <!-- SCRIPTS -->
 <script>
-        const menu = document.querySelector('#mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+    document.addEventListener('DOMContentLoaded', () => {
 
-        menu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menu.classList.toggle('is-active');
+    const menu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menu.classList.toggle('is-active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menu.classList.remove('is-active');
         });
+    });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menu.classList.remove('is-active');
-            });
-        });
+    const backToTop = document.getElementById('backToTop');
 
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 300);
+    window.addEventListener('scroll', () => {
+        if (!backToTop) return;
+        backToTop.classList.toggle('visible', window.scrollY > 300);
+    });
+
+    backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
 </script>
 
