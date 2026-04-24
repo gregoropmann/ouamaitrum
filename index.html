@@ -77,7 +77,7 @@
 <!-- NAVIGATION -->
         <nav>
             <div class="logo">
-                <a href="#top" class="back-to-top logo-back">
+                <a href="#top" class="logo-back">
                     <img src="images/logo.png" class="logo-img" alt="OÜ Amaitrum logo">
                 </a>
             </div>
@@ -276,6 +276,7 @@
 
     const menu = document.querySelector('#mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const backToTop = document.getElementById('backToTop');
 
     menu?.addEventListener('click', () => {
         navLinks.classList.toggle('active');
@@ -288,11 +289,16 @@
             menu.classList.remove('is-active');
         });
     });
+
+    window.addEventListener('scroll', () => {
+        if (!backToTop) return;
+        backToTop.classList.toggle('visible', window.scrollY > 300);
+    });
 });
 </script>
 
 <!-- BACK TO TOP -->
-<a href="top" class="back-to-top" id="backToTop" aria-label="Tagasi üles">↑</a>
+<a href="#top" class="back-to-top" id="backToTop" aria-label="Tagasi üles">↑</a>
 
 </body>
 </html>
